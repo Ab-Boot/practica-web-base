@@ -8,6 +8,7 @@ const listaPedido = document.getElementById('lista-pedido')
 const totalElemento = document.getElementById('total')
 const btnVaciar = document.getElementById('btn-vaciar')
 const botonesCategoria = document.querySelectorAll('.btn-categoria')
+const buscador = document.getElementById('buscador')
 
 const pedido = []
 
@@ -148,5 +149,17 @@ botonesCategoria.forEach(boton => {
     )
 
   })
+
+})
+
+buscador.addEventListener('input', () => {
+
+  const texto = buscador.value.toLowerCase()
+
+  const resultados = productos.filter(p =>
+    p.nombre.toLowerCase().includes(texto)
+  )
+
+  mostrarProductos(resultados)
 
 })
