@@ -7,6 +7,7 @@ const catalogo = document.getElementById('catalogo')
 const listaPedido = document.getElementById('lista-pedido')
 const totalElemento = document.getElementById('total')
 const btnVaciar = document.getElementById('btn-vaciar')
+const botonesCategoria = document.querySelectorAll('.btn-categoria')
 
 const pedido = []
 
@@ -101,3 +102,51 @@ mostrarPedido();
 // ------------------------------------------------------------
 
 // Escribe aquí tu código del Ejercicio 4
+botonesCategoria.forEach(boton => {
+
+  boton.addEventListener('click', () => {
+
+    const categoria = boton.dataset.categoria
+
+    let listaFiltrada
+
+    if (categoria === 'Todos') {
+
+      listaFiltrada = productos
+
+    } else {
+
+      listaFiltrada = productos.filter(
+        p => p.categoria === categoria
+      )
+
+    }
+
+    mostrarProductos(listaFiltrada)
+
+    // Cambiar estilo de los botones
+    botonesCategoria.forEach(b => {
+      b.classList.remove(
+        'bg-blue-600',
+        'text-white'
+      )
+
+      b.classList.add(
+        'bg-white',
+        'text-gray-800'
+      )
+    })
+
+    boton.classList.remove(
+      'bg-white',
+      'text-gray-800'
+    )
+
+    boton.classList.add(
+      'bg-blue-600',
+      'text-white'
+    )
+
+  })
+
+})
