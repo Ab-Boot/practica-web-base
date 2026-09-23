@@ -17,7 +17,21 @@ const catalogo = document.getElementById('catalogo')
 //   `).join('')
 // ------------------------------------------------------------
 function mostrarProductos(lista) {
-  // Escribe aquí tu código
+  catalogo.innerHTML = lista.map(p => `
+    <div class="bg-white rounded-lg shadow p-4">
+      <h2 class="text-xl font-bold mb-2">${p.nombre}</h2>
+
+      <p class="text-lg font-bold mb-4">
+        $${p.precio}
+      </p>
+
+      <button 
+        data-id="${p.id}"
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Agregar
+      </button>
+    </div>
+  `).join('');
 }
 
 mostrarProductos(productos)
