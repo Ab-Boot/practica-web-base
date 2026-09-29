@@ -73,6 +73,72 @@
               class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
               Vaciar pedido
           </button>
+
+          <form id="form-cliente" class="mt-6 space-y-4">
+
+  <!-- Nombre -->
+  <div>
+    <label for="nombre" class="block font-medium mb-1">
+      Nombre
+    </label>
+    <input
+      type="text"
+      id="nombre"
+      class="w-full border rounded-lg p-2"
+      placeholder="Tu nombre"
+    >
+    <p id="error-nombre" class="text-sm text-red-600 hidden">
+      El nombre es obligatorio.
+    </p>
+  </div>
+
+  <!-- Teléfono -->
+  <div>
+    <label for="telefono" class="block font-medium mb-1">
+      Teléfono
+    </label>
+    <input
+      type="text"
+      id="telefono"
+      class="w-full border rounded-lg p-2"
+      placeholder="10 dígitos"
+    >
+    <p id="error-telefono" class="text-sm text-red-600 hidden">
+      El teléfono debe tener exactamente 10 dígitos.
+    </p>
+  </div>
+
+  <!-- Correo -->
+  <div>
+    <label for="correo" class="block font-medium mb-1">
+      Correo
+    </label>
+    <input
+      type="text"
+      id="correo"
+      class="w-full border rounded-lg p-2"
+      placeholder="correo@ejemplo.com"
+    >
+    <p id="error-correo" class="text-sm text-red-600 hidden">
+      Ingresa un correo válido.
+    </p>
+  </div>
+
+  <!-- Error del pedido -->
+  <p id="error-pedido" class="text-sm text-red-600 hidden">
+    El pedido no puede estar vacío.
+  </p>
+
+  <button
+    type="submit"
+    class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+  >
+    Confirmar pedido
+  </button>
+
+</form>
+
+
         </aside>
 
         </main>

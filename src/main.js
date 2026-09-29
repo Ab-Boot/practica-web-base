@@ -10,6 +10,73 @@ const btnVaciar = document.getElementById('btn-vaciar')
 const botonesCategoria = document.querySelectorAll('.btn-categoria')
 const buscador = document.getElementById('buscador')
 
+
+// formulario
+
+const formCliente = document.getElementById('form-cliente');
+
+const nombre = document.getElementById('nombre');
+const telefono = document.getElementById('telefono');
+const correo = document.getElementById('correo');
+
+const errorNombre = document.getElementById('error-nombre');
+const errorTelefono = document.getElementById('error-telefono');
+const errorCorreo = document.getElementById('error-correo');
+const errorPedido = document.getElementById('error-pedido');
+
+// terminan const formulario cliente
+
+formCliente.addEventListener('submit', (evento) => {
+  evento.preventDefault();
+
+  let valido = true;
+
+  // Limpiar errores anteriores
+  errorNombre.classList.add('hidden');
+  errorTelefono.classList.add('hidden');
+  errorCorreo.classList.add('hidden');
+  errorPedido.classList.add('hidden');
+
+  nombre.classList.remove('border-red-500');
+  telefono.classList.remove('border-red-500');
+  correo.classList.remove('border-red-500');
+
+  // Validar nombre
+  if (nombre.value.trim() === '') {
+    errorNombre.classList.remove('hidden');
+    nombre.classList.add('border-red-500');
+    valido = false;
+  }
+
+  // Validar teléfono
+  if (!/^\d{10}$/.test(telefono.value)) {
+    errorTelefono.classList.remove('hidden');
+    telefono.classList.add('border-red-500');
+    valido = false;
+  }
+
+  // Validar correo
+  if (!/^\S+@\S+\.\S+$/.test(correo.value)) {
+    errorCorreo.classList.remove('hidden');
+    correo.classList.add('border-red-500');
+    valido = false;
+  }
+
+  // Validar pedido
+  if (pedido.length === 0) {
+    errorPedido.classList.remove('hidden');
+    valido = false;
+  }
+
+  // Si todo es correcto
+  if (valido) {
+    alert('Pedido confirmado correctamente.');
+
+    formCliente.reset();
+  }
+});
+
+
 const pedido = []
 
 // ------------------------------------------------------------
